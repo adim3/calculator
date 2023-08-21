@@ -1,0 +1,90 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Gemstones&family=Rubik+Vinyl&display=swap');
+
+
+
+
+
+/* .................... CALCULATOR PROJECT.......................... */
+
+
+/* seclectin all over elements including before and after elements... */
+*,*::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Handjet', cursive;
+    font-weight: normal;
+    color: black;
+}
+
+/* style background........../......... */
+body{
+    padding: 0;
+    margin: 0;
+    background: rgba(0,0,0,0.5) url("background\ img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+}
+
+/* style calcualtor gird.. ............ .........*/
+.claculator-box{
+    display: grid;
+    justify-content: center;
+    /* we use align-content property insted of align-items because we need to center entier content  */
+    align-content: center;  
+    /* for centering verticaly.. below one line */
+    min-height: 100vh;
+    /* for assign buttons row wise and column wise.. */
+   grid-template-columns: repeat(4,100px) ;
+   /* this minmax() function is for output screeen , when output result is really large it adjust auto ,and min height is 120px. */
+   grid-template-rows: minmax(120px, auto) repeat(5 ,100px);
+
+}
+
+/* styling each individual buttons.....................  */
+
+.claculator-box > button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    /* outline: none; */
+    background-color: rgba(219, 135, 240, 0.75)
+}
+.claculator-box > button:hover{
+    background-color: white;
+}
+
+/* adding double sapce for AC and Equal buttons.....................  */
+
+.space-two{
+    grid-column: span 2;
+}
+
+/* styling output section of calcualtor...............................   */
+
+.output{
+    /* in order to make output section span the entier width we have really nice trick which is called grid column again, in this case we want to say we want to go from  column number 1 all the  way to coulmn number -1 which is essentially just the last column... */
+    grid-column: 1/-1;
+    background-color: rgba(15, 15, 15, 0.7);
+    /* assing output screen number to center of the output div.. */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    /* if output data is too long we need to use ward wrap.. */
+   word-wrap: break-word;
+   word-break: break-all;
+}
+
+.prev-operand{
+font-size: 1.9rem;
+color: white;
+font-weight: bold;
+}
+.current-operand{
+    font-size: 2.2rem;
+    color: white;
+    font-weight: bold;
+}
